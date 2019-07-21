@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import myData from "./file1.json"
 import "./Image.css"
 
 export default class image extends Component {
@@ -7,6 +6,7 @@ export default class image extends Component {
         super(props)
         this.handleClick = this.handleClick.bind(this);
         this.data = props.album_data;
+        this.index = props.index;
         this.artist = this.data.artist.name
         this.album = this.data.name
         this.imageUrls = this.data.image
@@ -23,13 +23,15 @@ export default class image extends Component {
 
     render() {
         return (
-            <div className="imgWrapper">
-                <div className="imgText">
-                    <p>Artist: {this.artist}</p>
-                    <p>Album: {this.album}</p>
-                    <p>Playcount: {this.playcount}</p>
+            <div className="imgWrapper" id={this.index}>
+                <div className="imgElement">
+                    <div className="imgText">
+                        <p>Artist: {this.artist}</p>
+                        <p>Album: {this.album}</p>
+                        <p>Playcount: {this.playcount}</p>
+                    </div>
+                    <img src={this.imageUrls[3]["#text"]} alt="" className="albumImg"></img>
                 </div>
-                <img src={this.imageUrls[3]["#text"]} alt="" className="albumImg"></img>
             </div>
         )
     }

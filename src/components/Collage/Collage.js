@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Image
+import Image from "../Image/Image"
 import myData from "./file1.json"
+import "./Collage.css"
 
 
 export default class Collage extends Component {
@@ -8,23 +9,25 @@ export default class Collage extends Component {
         super(props)
         this.n_rows = props.n_rows;
         this.n_cols = props.n_cols;
-        this.album_data = myData;
-
+        this.result_data = myData;
         this.state = {
 
         }
     }
 
+    //need to be able to pass number of rows to each image
+    //created in order to set 
     createCollage() {
-        this.album_data.map(
+        return this.result_data.map((d, ind) => {
+            return (<Image album_data={d} index={ind} />)
+        })
 
-        )
     }
 
     render() {
         return (
-            <div>
-
+            <div className="collage">
+                {this.createCollage()}
             </div>
         )
     }

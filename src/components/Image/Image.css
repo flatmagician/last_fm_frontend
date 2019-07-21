@@ -1,16 +1,28 @@
+.imgWrapper {
+    flex: 1 0 0;
+}
+
+.imgElement {
+    z-index: 1;
+    display: inline-block;
+    height: 300px;
+    min-width: 300px;
+}
+
 .imgText {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
+    top: 60px;
+    left: 2px;
     padding: 3px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    z-index: 2;
 }
 
 .albumImg {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     z-index: -1;
