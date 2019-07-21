@@ -1,5 +1,6 @@
 .imgWrapper {
     flex: 1 0 0;
+
 }
 
 .imgElement {
@@ -7,6 +8,7 @@
     display: inline-block;
     height: 300px;
     min-width: 300px;
+    float: left;
 }
 
 .imgText {

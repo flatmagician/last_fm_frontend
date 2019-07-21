@@ -10,12 +10,13 @@ export default class Collage extends Component {
         this.n_rows = props.n_rows;
         this.n_cols = props.n_cols;
         this.result_data = myData;
+        this.collage_style = { width: `${300 * this.n_cols}px` };
         this.state = {
 
         }
     }
 
-    //need to be able to pass number of rows to each image
+    //need to be able to pass number of rows to collage element
     //created in order to set 
     createCollage() {
         return this.result_data.map((d, ind) => {
@@ -26,7 +27,7 @@ export default class Collage extends Component {
 
     render() {
         return (
-            <div className="collage">
+            <div className="collage" style={this.collage_style}>
                 {this.createCollage()}
             </div>
         )
