@@ -1,0 +1,27 @@
+.imgText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.albumImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+p {
+    margin: 0;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
