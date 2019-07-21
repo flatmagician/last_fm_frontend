@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Image from "../Image/Image"
-import myData from "./file1.json"
+import myData from "../../assets/file1.json"
 import "./Collage.css"
 
 
