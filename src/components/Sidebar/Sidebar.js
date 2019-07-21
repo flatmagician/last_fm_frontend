@@ -17,7 +17,8 @@ export default class Sidebar extends Component {
         this.state = {
             currentArtist: this.props.currentArtist,
             artistData: null,
-            imgUrl: this.imgUrl
+            imgUrl: this.imgUrl,
+            bioText: null
         }
         this.getArtist().then(this.fetchData)
     }
@@ -42,14 +43,47 @@ export default class Sidebar extends Component {
         let $ = await cheerio.load(result.data);
         let links = await $('.image-list-item-wrapper a img')
         let imgUrl = links[0].attribs.src
+
+        const wiki_result = await axios.get(`${'https://cors-anywhere.herokuapp.com/'}${this.state.artistData.artist.url}/+wiki/`)
+        let $$ = await cheerio.load(wiki_result.data)
+        let bio = await $$('.wiki-content p')
+        console.log("bio ", bio[0])
+
+        let bioText = bio[0].children.map(d => {
+            console.log("type", d.type)
+            if (d.type !== "text") {
+                if (d.type === "tag") {
+                    return '\t'
+                }
+                else {
+                    console.log(d.children[0].data)
+                    return d.children[0].data
+                }
+            }
+            else {
+                return d.data
+            }
+        })
+        bioText = bioText.reduce((prev, cur) => {
+            if (cur !== undefined) {
+                return prev + cur
+            }
+            else {
+                return prev
+            }
+        }, "")
+
         this.setState(() => {
-            return { imgUrl: imgUrl }
+            return {
+                imgUrl: imgUrl,
+                bioText: bioText
+            }
         })
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.currentArtist !== this.props.currentArtist) {
-            if (this.props.currentArtist = null) {
+            if (this.props.currentArtist === null) {
                 this.setState(() => {
                     return {
                         currentArtist: this.props.currentArtist,
@@ -84,12 +118,18 @@ export default class Sidebar extends Component {
                     <h2>{this.state.artistData.name}</h2>
                     {
                         showImg ?
-                            <img src={this.state.imgUrl} alt={this.state.artistData.artist.name}></img>
+                            <img className="artistImage" src={this.state.imgUrl} alt={this.state.artistData.artist.name}></img>
                             :
                             <div></div>
                     }
                     <h2> Plays: {this.state.artistData.playcount}</h2>
                     <h2><a href={this.state.artistData.artist.url}> View on last.fm</a></h2>
+                    {
+                        this.state.bioText ?
+                            <p className="bioText"> {this.state.bioText} </p>
+                            :
+                            <div></div>
+                    }
                 </div >
                 :
                 <div></div>

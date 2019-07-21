@@ -9,3 +9,11 @@
     margin: 0;
     min-width: min-content;
 }
+
+.pageWrapper {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
