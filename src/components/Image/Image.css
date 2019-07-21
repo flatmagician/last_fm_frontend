@@ -1,19 +1,23 @@
 .imgWrapper {
     flex: 1 0 0;
-
 }
 
 .imgElement {
     z-index: 1;
-    display: inline-block;
-    height: 300px;
+    display: relative;
     min-width: 300px;
-    float: left;
+    max-width: 330px;
+    height: 300px;
+    padding: 15px 15px 20px 15px;
+}
+
+#overlay {
+    background-color: rgba(255, 255, 255, 0.212);
+    z-index: 3;
 }
 
 .imgText {
     position: relative;
-    top: 60px;
     left: 2px;
     padding: 3px;
     display: flex;
@@ -21,11 +25,13 @@
     justify-content: flex-start;
     align-items: flex-start;
     z-index: 2;
+    top: 3px;
+    margin: 0 10% 0px 5%;
 }
 
 .albumImg {
     position: relative;
-    top: 0;
+    top: -60px;
     left: 0;
     z-index: -1;
 }
