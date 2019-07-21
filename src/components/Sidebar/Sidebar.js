@@ -47,13 +47,18 @@ export default class Sidebar extends Component {
         const wiki_result = await axios.get(`${'https://cors-anywhere.herokuapp.com/'}${this.state.artistData.artist.url}/+wiki/`)
         let $$ = await cheerio.load(wiki_result.data)
         let bio = await $$('.wiki-content p')
-        console.log("bio ", bio[0])
-
+        console.log(bio)
+        if (typeof bio === "undefined" || bio.length === 0) {
+            return
+        }
         let bioText = bio[0].children.map(d => {
             console.log("type", d.type)
             if (d.type !== "text") {
                 if (d.type === "tag") {
-                    return '\t'
+                    if (typeof d.children[0] === "undefined") {
+                        return `\t`
+                    }
+                    return d.children[0].data
                 }
                 else {
                     console.log(d.children[0].data)

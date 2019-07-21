@@ -1,13 +1,15 @@
 html {
     width: 100vw;
-    height: 100vh;
-    background-color: white;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
 }
 
 .App {
     text-align: center;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    overflow: auto;
     display: flex;
     flex-direction: row;
 }
