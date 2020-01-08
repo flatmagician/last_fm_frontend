@@ -15,7 +15,7 @@ export default class App extends Component {
     this.goHome = this.goHome.bind(this);
     this.dataURLtoBlob = this.dataURLtoBlob.bind(this);
     this.state = {
-      backendUrl: "https://last-fm.herokuapp.com/",
+      backendUrl: "last-fm.herokuapp.com/meta_info",
       albumInfo: null,
       page: "homepage",
       rows: null,
