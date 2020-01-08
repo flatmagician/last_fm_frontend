@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
-import myData from "../../assets/file1.json"
 import "./Sidebar.css"
-import axios from "axios"
-import cheerio from "cheerio"
 
 export default class Sidebar extends Component {
     constructor(props) {
         super(props)
-
-        this.collageData = myData;
-        this.clickHandler = this.clickHandler.bind(this);
         this.getArtist = this.getArtist.bind(this);
         this.fetchData = this.fetchData.bind(this);
         //this.imgUrl = this.fetchData().then((d) => d)
@@ -20,70 +14,31 @@ export default class Sidebar extends Component {
             imgUrl: this.imgUrl,
             bioText: null
         }
-        this.getArtist().then(this.fetchData)
+        this.getArtist().then(this.fetchData(this.props.index))
     }
     async getArtist() {
-        if (this.props.currentArtist !== null) {
-            let artistData = await this.collageData.find((d) => {
-                return d.artist.name === this.props.currentArtist;
-            })
-            this.setState(() => {
-                return { artistData: artistData }
-            })
-        }
+        this.state.artistData = this.props.artistData;
+        // this.setState(() => {
+        //     return { artistData: this.props.artistData }
+        // })
     }
 
-    clickHandler() {
-        console.log("click")
-        //this.fetchData()
-    }
-
-    async fetchData() {
-        const result = await axios.get(`${'https://cors-anywhere.herokuapp.com/'}${this.state.artistData.artist.url}/+images/`)
-        let $ = await cheerio.load(result.data);
-        let links = await $('.image-list-item-wrapper a img')
-        let imgUrl = links[0].attribs.src
-
-        const wiki_result = await axios.get(`${'https://cors-anywhere.herokuapp.com/'}${this.state.artistData.artist.url}/+wiki/`)
-        let $$ = await cheerio.load(wiki_result.data)
-        let bio = await $$('.wiki-content p')
-        console.log(bio)
-        if (typeof bio === "undefined" || bio.length === 0) {
-            return
+    async fetchData(ind) {
+        const result = this.props.imgArr
+        let imgUrl = result[ind].imgUrl
+        let bioText = result[ind].bioText
+        console.log("artistData", this.props.artistData)
+        this.state = {
+            imgUrl: imgUrl,
+            bioText: bioText,
+            artistData: this.props.artistData
         }
-        let bioText = bio[0].children.map(d => {
-            console.log("type", d.type)
-            if (d.type !== "text") {
-                if (d.type === "tag") {
-                    if (typeof d.children[0] === "undefined") {
-                        return `\t`
-                    }
-                    return d.children[0].data
-                }
-                else {
-                    console.log(d.children[0].data)
-                    return d.children[0].data
-                }
-            }
-            else {
-                return d.data
-            }
-        })
-        bioText = bioText.reduce((prev, cur) => {
-            if (cur !== undefined) {
-                return prev + cur
-            }
-            else {
-                return prev
-            }
-        }, "")
-
-        this.setState(() => {
-            return {
-                imgUrl: imgUrl,
-                bioText: bioText
-            }
-        })
+        // this.setState(() => {
+        //     return {
+        //         imgUrl: imgUrl,
+        //         bioText: bioText
+        //     }
+        // })
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -118,20 +73,20 @@ export default class Sidebar extends Component {
         let showImg = this.state.imgUrl ? true : false
         return (
             display ?
-                <div className="sidebar" onClick={this.clickHandler}>
-                    <h1>{this.state.artistData.artist.name}</h1>
-                    <h2>{this.state.artistData.name}</h2>
+                <div className="sidebar bg-secondary col-md-3 col-sm-6 m-0 p-3" style={{"position":"sticky", "top":"0"}} onClick={this.clickHandler}>
+                    <h3 className="col-xs-6">{this.props.artistData.artist.name}</h3>
+                    <h4 className="col-xs-6">{this.props.artistData.name}</h4>
                     {
                         showImg ?
-                            <img className="artistImage" src={this.state.imgUrl} alt={this.state.artistData.artist.name}></img>
+                            <img className="artistImage img-fluid" src={this.state.imgUrl} alt={this.state.artistData.artist.name}></img>
                             :
                             <div></div>
                     }
-                    <h2> Plays: {this.state.artistData.playcount}</h2>
-                    <h2><a href={this.state.artistData.artist.url}> View on last.fm</a></h2>
+                    <h4 className="col-xs-6"> Plays: {this.state.artistData.playcount}</h4>
+                    <h4 className="col-xs-6"><a href={this.state.artistData.artist.url}> View on last.fm</a></h4>
                     {
                         this.state.bioText ?
-                            <p className="bioText"> {this.state.bioText} </p>
+                            <p className="bioText col-xs-8"> {this.state.bioText} </p>
                             :
                             <div></div>
                     }

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import "./Image.css"
+import question from './question-mark.png'
 
 export default class image extends Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this);
+        this.addDefaultSrc = this.addDefaultSrc.bind(this);
         this.data = props.album_data;
         this.index = props.index;
 
@@ -12,7 +14,9 @@ export default class image extends Component {
         this.album = this.data.name
         this.imageUrls = this.data.image
         this.playcount = this.data.playcount
-
+        this.style = {
+            "max-width": `${this.props.size}%`
+        }
         this.state = {
             showOverlay: this.props.showOverlay,
             clicked: this.props.clicked,
@@ -51,19 +55,24 @@ export default class image extends Component {
         )
     }
 
+    addDefaultSrc(ev) {
+        ev.target.src = question
+    }
+
     render() {
         let elementId = this.state.showOverlay ? "overlay" : ""
         return (
-            <div className="imgWrapper" id={this.index}>
-                <div className="imgElement" id={elementId} onClick={this.handleClick}>
+            <div className="imgWrapper col-xs-6 m-0 p-0 container-fluid" style={this.style} id={this.index}>
+                <div className="imgElement media" id={elementId} onClick={this.handleClick}>
                     <div className="imgText">
-                        <p>Artist: {this.artist}</p>
-                        <p>Album: {this.album}</p>
-                        <p>Playcount: {this.playcount}</p>
+                        <p className="text-left m-0">Artist: {this.artist}</p>
+                        <p className="text-left m-0">Album: {this.album}</p>
+                        <p className="text-left m-0">Playcount: {this.playcount}</p>
                     </div>
-                    <img src={this.imageUrls[3]["#text"]} alt="" className="albumImg"></img>
+                    <img src={this.imageUrls[3]["#text"]} onError={this.addDefaultSrc} alt="" style={{ "padding": "0" }} crossorigin="Anonymous"
+                        className="albumImg img-fluid col-12"></img>
                 </div>
-            </div>
+            </div >
         )
     }
 }

@@ -8,17 +8,15 @@ import "./Collage.css"
 export default class Collage extends Component {
     constructor(props) {
         super(props)
-        this.n_rows = 3//props.n_rows;
-        this.n_cols = 3//props.n_cols;
         this.image_refs = []
         this.result_data = myData;
         this.displaySidebar = false;
         this.currentArtist = null;
-        this.collage_style = { "max-width": `${330 * this.n_cols}px` };
         this.state = {
             collage: true,
             showOverlay: false,
-
+            index: -1,
+            currentArtist: null
         }
 
         this.createCollage = this.createCollage.bind(this)
@@ -30,10 +28,11 @@ export default class Collage extends Component {
     //created in order to set 
     createCollage() {
         this.image_refs = []
-        this.collage = this.result_data.map((d, ind) => {
+        this.collage = this.props.albumInfo.album_info.map((d, ind) => {
             let current_ref = React.createRef()
             this.image_refs.push(current_ref)
-            return (<Image album_data={d} index={ind} showOverlay={this.state.showOverlay} clicked={false} key={ind} ref={current_ref} />)
+            return (<Image album_data={d} index={ind} showOverlay={this.state.showOverlay}
+                clicked={false} key={ind} ref={current_ref} size={100 / this.props.cols} />)
         })
         return this.collage;
     }
@@ -60,7 +59,10 @@ export default class Collage extends Component {
         if (hasOverlay !== -1) {
             this.displaySidebar = true
             this.currentArtist = image_info[hasOverlay].artist
-            this.forceUpdate()
+            this.setState({
+                index: hasOverlay,
+                currentArtist: image_info[hasOverlay].artist
+            })
         }
         else {
             this.displaySidebar = false
@@ -71,14 +73,20 @@ export default class Collage extends Component {
 
     render() {
         return (
-            <div className="pageWrapper">
-                <div className="collage" style={this.collage_style} onClick={this.clickHandler} >
+            <div className="pageWrapper container bg-secondary col m-0 p-0">
+
+                <div className="collage container justify-content-left align-top col-md-9 col-xs-6 m-0 p-0"
+                    style={this.collage_style} onClick={this.clickHandler} id="collage" >
                     {this.createCollage()}
                 </div>
                 {this.displaySidebar ?
-                    <Sidebar currentArtist={this.currentArtist} />
+                    <Sidebar currentArtist={this.currentArtist} index={this.state.index}
+                        artistData={this.props.albumInfo.album_info[this.state.index]}
+                        imgArr={this.props.albumInfo.img_arr} />
                     :
-                    <div></div>
+                    <div className="sidebar bg-secondary col-md-3 col-sm-6 m-0 p-3" style={{ "position": "sticky", "top": "0" }}>
+                        <h4>Click an album to get more information!</h4>
+                    </div>
                 }
             </div>
         )
