@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/last_fm_frontend/static/css/main.fb4becf7.chunk.css",
-    "main.js": "/last_fm_frontend/static/js/main.8e287719.chunk.js",
-    "main.js.map": "/last_fm_frontend/static/js/main.8e287719.chunk.js.map",
+    "main.js": "/last_fm_frontend/static/js/main.7bec576a.chunk.js",
+    "main.js.map": "/last_fm_frontend/static/js/main.7bec576a.chunk.js.map",
     "runtime~main.js": "/last_fm_frontend/static/js/runtime~main.dd94bb20.js",
     "runtime~main.js.map": "/last_fm_frontend/static/js/runtime~main.dd94bb20.js.map",
     "static/js/2.d5d217b8.chunk.js": "/last_fm_frontend/static/js/2.d5d217b8.chunk.js",
     "static/js/2.d5d217b8.chunk.js.map": "/last_fm_frontend/static/js/2.d5d217b8.chunk.js.map",
     "index.html": "/last_fm_frontend/index.html",
-    "precache-manifest.5c83d3476b4e8453e8e0421e13982a8e.js": "/last_fm_frontend/precache-manifest.5c83d3476b4e8453e8e0421e13982a8e.js",
+    "precache-manifest.b05b18390d36e49f6ca2a6e93ac7ad44.js": "/last_fm_frontend/precache-manifest.b05b18390d36e49f6ca2a6e93ac7ad44.js",
     "service-worker.js": "/last_fm_frontend/service-worker.js",
     "static/css/main.fb4becf7.chunk.css.map": "/last_fm_frontend/static/css/main.fb4becf7.chunk.css.map"
   }
