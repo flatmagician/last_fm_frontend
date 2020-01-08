@@ -16,7 +16,7 @@ export default class Homepage extends Component {
             rowInput: null,
             colInput: null,
             duration: null,
-            category: null
+            category: "albums"
 
         }
     }
