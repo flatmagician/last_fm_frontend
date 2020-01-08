@@ -85,8 +85,8 @@ export default class Homepage extends Component {
                         <select value={this.state.category} onChange={this.handleCategoryChange} required className="form-control form-control-lg form-secondary" >
                             <option value="" disabled selected hidden>Select Category</option>
                             <option value="albums">Top Albums</option>
-                            <option value="artists">Top Artists</option>
-                            <option value="tracks">Top Tracks</option>
+                            {/* <option value="artists">Top Artists</option>
+                            <option value="tracks">Top Tracks</option> */}
                         </select>
                     </div>
                     <div className="durationOptions col-md-5 col-sm-7 col-xs-12 m-1">
