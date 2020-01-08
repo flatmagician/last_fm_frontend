@@ -12,3 +12,12 @@
 .homepage {
     flex: 0 0 50% !important;
 }
+
+.username_label {
+    margin-bottom: 0 !important;
+    width: 100%;
+}
+
+.form-control-lg {
+    border-radius: .3rem !important;
+}

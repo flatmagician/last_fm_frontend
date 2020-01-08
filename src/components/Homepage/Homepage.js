@@ -65,29 +65,11 @@ export default class Homepage extends Component {
                 <h1>last.fm collage utility</h1>
                 <div className="formWrapper row no-pad justify-content-center">
                     <h3 className="formHeader col-12">Create a Collage!</h3>
-                    <div className="username">
-                        <label className="row">
+                    <div className="username col-md-5 col-sm-7 col-xs-12 m-1">
+                        <label class="username_label">
                             <input type="text" className="form-control form-control-lg" name="username"
                                 placeholder="last.fm Username:" value={this.state.username} onChange={this.handleUsernameChange} />
                         </label>
-                    </div>
-                    <div className="sizeOptions col-12 row no-pad justify-content-center">
-                        <div className="col-md-5 col-sm-7 col-xs-12 m-1">
-                            <input type="text" className="form-control form-control-lg" name="rowInput" placeholder="Rows: (max 15)"
-                                value={this.state.rowInput} onChange={this.handleRowChange} />
-                        </div>
-                        <div className="col-md-5 col-sm-7 col-xs-12 m-1">
-                            <input type="text" className="form-control form-control-lg" name="colInput" placeholder="Cols: (max 15)"
-                                value={this.state.colInput} onChange={this.handleColChange} />
-                        </div>
-                    </div>
-                    <div className="categoryOptions col-md-5 col-sm-7 col-xs-12 m-1">
-                        <select value={this.state.category} onChange={this.handleCategoryChange} required className="form-control form-control-lg form-secondary" >
-                            <option value="" disabled selected hidden>Select Category</option>
-                            <option value="albums">Top Albums</option>
-                            {/* <option value="artists">Top Artists</option>
-                            <option value="tracks">Top Tracks</option> */}
-                        </select>
                     </div>
                     <div className="durationOptions col-md-5 col-sm-7 col-xs-12 m-1">
                         <select value={this.state.duration} onChange={this.handleDurationChange} required className="form-control form-control-lg form-secondary">
@@ -100,6 +82,24 @@ export default class Homepage extends Component {
                             <option value="12month">Last Year</option>
                         </select>
                     </div>
+                    <div className="sizeOptions col-12 row no-pad justify-content-center">
+                        <div className="col-md-5 col-sm-7 col-xs-12 m-1">
+                            <input type="text" className="form-control form-control-lg" name="rowInput" placeholder="Rows: (max 15)"
+                                value={this.state.rowInput} onChange={this.handleRowChange} />
+                        </div>
+                        <div className="col-md-5 col-sm-7 col-xs-12 m-1">
+                            <input type="text" className="form-control form-control-lg" name="colInput" placeholder="Cols: (max 15)"
+                                value={this.state.colInput} onChange={this.handleColChange} />
+                        </div>
+                    </div>
+                    {/* <div className="categoryOptions col-md-5 col-sm-7 col-xs-12 m-1">
+                        <select value={this.state.category} onChange={this.handleCategoryChange} required className="form-control form-control-lg form-secondary" >
+                            <option value="" disabled selected hidden>Select Category</option>
+                            <option value="albums">Top Albums</option>
+                            <option value="artists">Top Artists</option>
+                            <option value="tracks">Top Tracks</option>
+                        </select>
+                    </div> */}
                     <div className="submit m-1 col-md-12 col-sm-12 col-xs-12">
                         <button name="submissionButton" type="button" className="btn btn-lg btn-secondary btn"
                             onClick={() => this.props.getAlbumInfo(this.state.username, this.state.category, this.state.duration, this.state.rowInput, this.state.colInput)}>
@@ -107,7 +107,7 @@ export default class Homepage extends Component {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }
