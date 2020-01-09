@@ -20,4 +20,5 @@
 
 .form-control-lg {
     border-radius: .3rem !important;
+    color: inherit;
 }
