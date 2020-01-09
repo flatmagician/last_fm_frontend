@@ -96,7 +96,8 @@ export default class Homepage extends Component {
                 this.setState({
                     username_placeholder: "Need to Enter Username",
                     username_style: {
-                        "border-color": "rgb(241, 151, 155)"
+                        "border-color": "rgb(241, 151, 155)",
+                        "border-width": "medium"
                     }
                 })
             }
@@ -105,7 +106,8 @@ export default class Homepage extends Component {
                     duration_placeholder: "Need to Select Duration",
                     duration_style: {
                         "color": "#888888",
-                        "border-color": "rgb(241, 151, 155)"
+                        "border-color": "rgb(241, 151, 155)",
+                        "border-width": "medium"
                     }
                 })
             }
@@ -113,7 +115,8 @@ export default class Homepage extends Component {
                 this.setState({
                     row_placeholder: "Need to Enter Rows",
                     row_style: {
-                        "border-color": "rgb(241, 151, 155)"
+                        "border-color": "rgb(241, 151, 155)",
+                        "border-width": "medium"
                     }
                 })
             }
@@ -121,7 +124,8 @@ export default class Homepage extends Component {
                 this.setState({
                     col_placeholder: "Need to Enter Cols",
                     col_style: {
-                        "border-color": "rgb(241, 151, 155)"
+                        "border-color": "rgb(241, 151, 155)",
+                        "border-width": "medium"
                     }
                 })
             }
