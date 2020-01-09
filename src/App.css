@@ -15,7 +15,7 @@ html {
     flex-grow: 1;
     text-align: center;
     width: 100vw;
-    height: auto;
+    height: 100%;
     overflow: scroll;
     display: flex;
     flex-direction: column;
