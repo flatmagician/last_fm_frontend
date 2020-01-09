@@ -12,22 +12,22 @@ export default class Homepage extends Component {
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.submit = this.submit.bind(this);
         this.state = {
-            username: null,
+            username: "bentaussig",
             username_placeholder: "last.fm Username:",
             username_style: {
                 color: "#888888"
             },
-            rowInput: null,
+            rowInput: 3,
             row_placeholder: "Rows: (max 15)",
             row_style: {
                 color: "#888888"
             },
-            colInput: null,
+            colInput: 3,
             col_placeholder: "Cols: (max 15)",
             col_style: {
                 color: "#888888"
             },
-            duration: null,
+            duration: "7day",
             duration_placeholder: "Select Duration",
             duration_style: {
                 color: "#888888"
