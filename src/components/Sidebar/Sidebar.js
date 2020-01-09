@@ -47,9 +47,6 @@ export default class Sidebar extends Component {
 
     render() {
         let display = this.props.artistData ? true : false
-        console.log(Object.prototype.toString.call(this.props.artistData))
-        console.log(this.props.artistData)
-        console.log(display)
         let showImg = this.state.imgUrl ? true : false
         return (
             display ?

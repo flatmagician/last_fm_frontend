@@ -38,7 +38,6 @@ export default class Homepage extends Component {
     }
 
     handleUsernameChange(e) {
-        console.log(e.target.value)
         this.setState({
             username: e.target.value,
             username_style: {
@@ -49,7 +48,6 @@ export default class Homepage extends Component {
     }
 
     handleRowChange(e) {
-        console.log(e.target.value)
         this.setState({
             rowInput: e.target.value,
             row_style: {
@@ -60,7 +58,6 @@ export default class Homepage extends Component {
     }
 
     handleColChange(e) {
-        console.log(e.target.value)
         this.setState({
             colInput: e.target.value,
             col_style: {
@@ -70,7 +67,6 @@ export default class Homepage extends Component {
         })
     }
     handleDurationChange(e) {
-        console.log(e.target.value)
         this.setState({
             duration: e.target.value,
             duration_style: {
@@ -81,7 +77,6 @@ export default class Homepage extends Component {
     }
 
     handleCategoryChange(e) {
-        console.log(e.target.value)
         this.setState({
             category: e.target.value
         })

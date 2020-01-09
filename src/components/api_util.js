@@ -34,7 +34,7 @@ class Request {
                         () => { return response.data.topalbums.album });
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    console.error(error);
                 });
         }
     }
@@ -46,7 +46,7 @@ let period = "one_month";
 let rows = 3;
 let cols = 3;
 
-console.log("creating new request")
+// console.log("creating new request")
 let test_request = new Request(user, category, period, rows, cols);
 const response = test_request.getResponse()
 

@@ -29,7 +29,6 @@ export default class App extends Component {
     this.setState({
       page: "loading"
     })
-    console.log(user, category, period, rows, cols)
     fetch(this.state.backendUrl, {
       method: "GET",
       headers: new Headers({
@@ -40,7 +39,6 @@ export default class App extends Component {
         cols
       })
     }).then(d => d.json()).then(d => {
-      console.log(d)
       this.setState({
         albumInfo: d,
         page: "collage",
@@ -54,7 +52,6 @@ export default class App extends Component {
     if (this.state.page === "collage") {
       let width = `${this.state.cols * 300}`
       let height = `${this.state.rows * 300}`
-      console.log(width, height)
       let options = {
         windowWidth: width,
         windowHeight: height,
@@ -66,7 +63,6 @@ export default class App extends Component {
         allowTaint: true,
         useCORS: true,
         onclone: function (canvas) {
-          console.log('onclone fired')
           let img = canvas.querySelector(".collage")
           canvas.querySelector(".main").style.width = width + "px";
           canvas.querySelector(".main").style.height = height + "px";
@@ -75,7 +71,6 @@ export default class App extends Component {
           canvas.querySelectorAll(".imgWrapper").forEach(elm => elm.className = "imgWrapper")
           canvas.querySelectorAll(".imgElement").forEach(elm => elm.style["font-size"] = "4em")
           canvas.querySelectorAll(".albumImg").forEach(elm => elm.className = "img-fluid")
-          console.log(canvas.querySelector(".main"))
           img.className = 'collage justify-content-left align-top m-0 p-0'
 
           img.style.width = width + "px"

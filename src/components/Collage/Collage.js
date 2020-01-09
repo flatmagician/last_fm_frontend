@@ -43,7 +43,6 @@ export default class Collage extends Component {
 
     componentDidUpdate() {
         //determine if any images are highlighted
-        console.log("updated!")
         let image_info = this.image_refs.map((ref) => {
             let image = ref.current;
             return {

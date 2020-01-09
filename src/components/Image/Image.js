@@ -44,8 +44,6 @@ export default class image extends Component {
     }
 
     handleClick = () => {
-        // console.log(this.state.showOverlay)
-        // console.log("click!")
         this.setState((state, props) => {
             return {
                 clicked: true,
