@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/last_fm_frontend/precache-manifest.06c72a5e5eacf853d7553a12a5e9a5d3.js"
+  "/last_fm_frontend/precache-manifest.38eac0a37280c4629649dd5384c8adb3.js"
 );
 
 self.addEventListener('message', (event) => {
