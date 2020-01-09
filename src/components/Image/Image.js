@@ -13,8 +13,9 @@ export default class image extends Component {
         this.artist = this.data.artist.name
         this.album = this.data.name
         this.imageUrls = this.data.image
+        this.imageUrls[3]["#text"] = "http" + this.imageUrls[3]["#text"].substring(5)
+        console.log(this.imageUrl)
         this.playcount = this.data.playcount
-        console.log(this.imageUrls[3]["#text"])
         this.style = {
             "max-width": `${this.props.size}%`
         }
