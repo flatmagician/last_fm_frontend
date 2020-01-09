@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/last_fm_frontend/static/css/main.7c993786.chunk.css",
+    "main.css": "/last_fm_frontend/static/css/main.1b685df2.chunk.css",
     "main.js": "/last_fm_frontend/static/js/main.fd0ab556.chunk.js",
     "main.js.map": "/last_fm_frontend/static/js/main.fd0ab556.chunk.js.map",
     "runtime~main.js": "/last_fm_frontend/static/js/runtime~main.dd94bb20.js",
@@ -8,8 +8,8 @@
     "static/js/2.a19ff2a9.chunk.js": "/last_fm_frontend/static/js/2.a19ff2a9.chunk.js",
     "static/js/2.a19ff2a9.chunk.js.map": "/last_fm_frontend/static/js/2.a19ff2a9.chunk.js.map",
     "index.html": "/last_fm_frontend/index.html",
-    "precache-manifest.06c72a5e5eacf853d7553a12a5e9a5d3.js": "/last_fm_frontend/precache-manifest.06c72a5e5eacf853d7553a12a5e9a5d3.js",
+    "precache-manifest.6448da91b0d9d869aa83df4fe96010d1.js": "/last_fm_frontend/precache-manifest.6448da91b0d9d869aa83df4fe96010d1.js",
     "service-worker.js": "/last_fm_frontend/service-worker.js",
-    "static/css/main.7c993786.chunk.css.map": "/last_fm_frontend/static/css/main.7c993786.chunk.css.map"
+    "static/css/main.1b685df2.chunk.css.map": "/last_fm_frontend/static/css/main.1b685df2.chunk.css.map"
   }
 }

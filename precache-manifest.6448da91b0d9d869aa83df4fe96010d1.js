@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "54e69863dad0c213f59d38c3a271432c",
+    "revision": "810046c4f04c3da65fef863762c5ffec",
     "url": "/last_fm_frontend/index.html"
   },
   {
-    "revision": "78187e2a0db131d6891a",
-    "url": "/last_fm_frontend/static/css/main.7c993786.chunk.css"
+    "revision": "cb6cf1905a264a6a433e",
+    "url": "/last_fm_frontend/static/css/main.1b685df2.chunk.css"
   },
   {
     "revision": "366b18ca08a20370197c",
     "url": "/last_fm_frontend/static/js/2.a19ff2a9.chunk.js"
   },
   {
-    "revision": "78187e2a0db131d6891a",
+    "revision": "cb6cf1905a264a6a433e",
     "url": "/last_fm_frontend/static/js/main.fd0ab556.chunk.js"
   },
   {
