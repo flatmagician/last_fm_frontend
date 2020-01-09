@@ -14,6 +14,7 @@ export default class image extends Component {
         this.album = this.data.name
         this.imageUrls = this.data.image
         this.playcount = this.data.playcount
+        console.log(this.imageUrls[3]["#text"])
         this.style = {
             "max-width": `${this.props.size}%`
         }
