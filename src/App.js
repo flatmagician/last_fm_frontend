@@ -5,6 +5,7 @@ import './App.css';
 import Homepage from "./components/Homepage/Homepage"
 import Loading from "./components/Loading/Loading"
 import Navbar from "./components/Navbar/Navbar"
+import 'whatwg-fetch';
 
 
 export default class App extends Component {
