@@ -52,7 +52,6 @@ export default class App extends Component {
 
   downloadImg() {
     if (this.state.page === "collage") {
-      console.log("HERE!!!")
       let width = `${this.state.cols * 300}`
       let height = `${this.state.rows * 300}`
       console.log(width, height)
@@ -99,7 +98,7 @@ export default class App extends Component {
         });
     }
     else {
-      console.log("wrong page")
+      console.error("wrong page")
       return
     }
   }
